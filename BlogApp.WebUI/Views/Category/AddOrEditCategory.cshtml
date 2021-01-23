@@ -1,0 +1,23 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "AddOrEditCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="container">
+    <h1>AddOrEditCategory</h1>
+    <br />
+
+    <form asp-controller="Category" asp-action="AddOrEditCategory" method="post">
+        <input asp-for="CategoryId" type="hidden" />
+        <div class="form-group">
+            <label asp-for="Name">Name</label>
+            <input asp-for="Name" class="form-control">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </form>
+</div>

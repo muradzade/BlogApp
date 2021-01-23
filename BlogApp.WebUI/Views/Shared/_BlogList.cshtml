@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Blog>
+
+@if (Model.Count() > 0)
+{
+    int counter=0;
+    int col = 2;
+
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            if(counter==col)
+            {
+                @:</div>
+                @:<div class="row">
+            }
+            <div class="card mt-3 mr-2 ml-5 col-md-5">
+                <div class="card-header">
+                    @item.Title
+                </div>
+                <img src="~/img/@item.Image" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Title</h5>
+                    <p class="card-text">@item.Description</p>
+                    <br />
+                    <h6>@item.Date</h6>
+                    <a asp-controller="Blog" asp-action="Details" class="btn btn-primary" asp-route-id="@item.BlogId">Details</a>
+                </div>
+            </div>
+        }
+
+    </div>
+}
+
+else
+{
+    <div class="alert alert-warning">
+        There are no blogs in category you selected
+    </div>
+}

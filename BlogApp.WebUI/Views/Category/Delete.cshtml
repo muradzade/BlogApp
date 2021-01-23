@@ -1,0 +1,20 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <div class="container">
+
+        <h2>
+            If <b>@Model.Name</b> will be deleted,all blogs that depend to <b>@Model.Name</b> will be deleted <br />
+            Do you want still to delete the blog named <b> @Model.Name</b> ?
+        </h2>
+
+        <form asp-controller="Category" asp-action="Delete" method="post">
+            <input type="hidden" asp-for="CategoryId" />
+            <button type="submit" class="btn btn-primary">Delete</button>
+        </form>
+
+    </div>
+
